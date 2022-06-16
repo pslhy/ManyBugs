@@ -79,7 +79,7 @@ COPY start.sh /experiment/start.sh
 COPY set_preprocess.sh /experiment/set_preprocess.sh
 COPY auto_ptest.sh /experiment/auto_ptest.sh
 
-RUN sudo /experiment/start.sh
+RUN sudo chmod +x start.sh
 
 
 # add generic preprocessing script
