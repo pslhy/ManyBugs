@@ -69,9 +69,18 @@ RUN git clone https://github.com/wslee/euphony.git \
  && . bin/setenv \
  && cd ..
 
-# install inv_repair (temp link for now)
-RUN wget https://transfer.sh/y2c6AL/invrepair.zip \
- && unzip invrepair.zip
+# install inv_repair
+COPY invrepair.zip /experiment/invrepair.zip
+RUN unzip invrepair.zip && \
+    remove invrepair.zip
+
+# add some shell files
+COPY start.sh /experiment/start.sh
+COPY set_preprocess.sh /experiment/set_preprocess.sh
+COPY auto_ptest.sh /experiment/auto_ptest.sh
+
+RUN ./start.sh
+
 
 # add generic preprocessing script
 COPY base/preprocess /experiment/preprocess
