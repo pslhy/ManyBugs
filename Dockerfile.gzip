@@ -65,6 +65,25 @@ RUN cd /tmp \
 RUN sudo mkdir -p /experiment && sudo chown -R docker /experiment
 WORKDIR /experiment
 
+# install Euphony
+RUN git clone https://github.com/wslee/euphony.git \
+ && cd euphony \
+ && ./build \
+ && . bin/setenv \
+ && cd ..
+
+# install inv_repair
+COPY invrepair.zip /experiment/invrepair.zip
+RUN unzip invrepair.zip -d invrepair && \
+    rm invrepair.zip
+
+# add some shell files
+COPY start.sh /experiment/start.sh
+COPY set_preprocess.sh /experiment/set_preprocess.sh
+COPY auto_ptest.sh /experiment/auto_ptest.sh
+
+RUN sudo chmod +x *.sh
+
 # add generic preprocessing script
 ADD base/preprocess /experiment/preprocess
 
