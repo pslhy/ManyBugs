@@ -72,7 +72,7 @@ RUN git clone https://github.com/wslee/euphony.git \
 # install inv_repair
 COPY invrepair.zip /experiment/invrepair.zip
 RUN unzip invrepair.zip && \
-    remove invrepair.zip
+    rm invrepair.zip
 
 # add some shell files
 COPY start.sh /experiment/start.sh
