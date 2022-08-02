@@ -74,10 +74,7 @@ RUN mkdir invrepair
 COPY invrepair.zip /experiment/invrepair/invrepair.zip
 RUN unzip /experiment/invrepair/invrepair.zip && \
     rm /experiment/invrepair/invrepair.zip && \
-    rm -rf /experiment/invrepair/__MACOSX && \
-    sudo chmod +x /experiment/invrepair/synth_euphony.sh && \
-    sudo chmod +x /experiment/invrepair/train.sh && \
-    sudo chmod +x /experiment/invrepair/repair.native
+    rm -rf /experiment/invrepair/__MACOSX
 
 # add some shell files
 COPY start.sh /experiment/start.sh
