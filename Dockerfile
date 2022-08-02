@@ -73,18 +73,15 @@ RUN git clone https://github.com/wslee/euphony.git \
 RUN mkdir invrepair
 COPY invrepair.zip /experiment/invrepair/invrepair.zip
 RUN unzip /experiment/invrepair/invrepair.zip && \
-    rm /experiment/invrepair/invrepair.zip
+    rm /experiment/invrepair/invrepair.zip && \
+    rm -rf /experiment/invrepair/__MACOSX
 
 # add some shell files
 COPY start.sh /experiment/start.sh
 COPY set_preprocess.sh /experiment/set_preprocess.sh
 COPY auto_ptest.sh /experiment/auto_ptest.sh
 
-
-RUN sudo sh /experiment/start.sh
-RUN sudo chmod +x *.sh
 RUN sudo chmod +x /experiment/invrepair/*
-
 
 # add generic preprocessing script
 COPY base/preprocess /experiment/preprocess

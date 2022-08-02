@@ -43,6 +43,9 @@ RUN cd /experiment && \
       svn revert $(cat /experiment/manifest.txt) && \
     sudo chown -R docker /experiment
 
+RUN sudo bash /experiment/start.sh
+RUN sudo chmod +x /experiment/*.sh
+
 # fix the test harness and the configuration script
 RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
     sed -i "s#cd gmp#cd src#g" test.sh && \

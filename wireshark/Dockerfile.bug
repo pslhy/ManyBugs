@@ -27,6 +27,9 @@ RUN wget -nv -O scenario.tar.gz \
     cat /experiment/doc.patch | patch -p1 && \
     rm /experiment/doc.patch
 
+RUN sudo bash /experiment/start.sh
+RUN sudo chmod +x /experiment/*.sh
+
 RUN cd /experiment/scenario && \
     find . -type f -print0 | xargs -0 sed -i '' && \
     cd src && \

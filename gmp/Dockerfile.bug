@@ -39,6 +39,9 @@ RUN cd /experiment && \
     rm -rf tests && \
     sudo chown -R docker /experiment
 
+RUN sudo bash /experiment/start.sh
+RUN sudo chmod +x /experiment/*.sh
+
 # Remove all references to tests/mpbsd/Makefile from configure.
 # Fixes: "config.status: error: cannot find input file: `tests/mpbsd/Makefile.in'"
 # Credit to Eduardo Souza (github.com/eduardodx)

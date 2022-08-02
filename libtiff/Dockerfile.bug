@@ -33,6 +33,9 @@ RUN wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO
     sed -i "s#/experiment/limit#timeout 5#g"  test.sh && \
     sed -i "s#cd libtiff#cd src#g"            test.sh
 
+RUN sudo bash /experiment/start.sh
+RUN sudo chmod +x /experiment/*.sh
+
 # fix the source code
 RUN cd /experiment/src && \
     make distclean && \
