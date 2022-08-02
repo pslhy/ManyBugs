@@ -70,9 +70,10 @@ RUN git clone https://github.com/wslee/euphony.git \
  && cd ..
 
 # install inv_repair
-COPY invrepair.zip /experiment/invrepair.zip
-RUN unzip -d invrepair.zip && \
-    rm invrepair.zip
+RUN mkdir invrepair
+COPY invrepair.zip /experiment/invrepair/invrepair.zip
+RUN unzip /experiment/invrepair/invrepair.zip && \
+    rm /experiment/invrepair/invrepair.zip
 
 # add some shell files
 COPY start.sh /experiment/start.sh
