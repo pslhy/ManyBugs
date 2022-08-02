@@ -28,6 +28,8 @@ else
 #! /bin/bash
 cd /experiment
 bash ./set_preprocess.sh
+cd /experiment/euphony/bin
+. setenv
 cd /experiment/src
 make
 cd /experiment/src/$loc
@@ -45,6 +47,7 @@ if [ -e run_test.sh ]; then
 else
         cat > run_test.sh <<EOF
 #! /bin/bash
+cd /experiment
 ./test.sh \$1
 r=\$?
 cd /experiment/src/$loc
