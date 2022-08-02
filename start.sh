@@ -6,7 +6,7 @@ loc=`dirname $manifest`
 fname=`basename $manifest`
 root_loc=/experiment
 ptests=`cat /experiment/test.sh | grep -w "p[[:digit:]]*)" | wc -l`
-ntests=`cat /experiment/test.sh | grep -w "p[[:digit:]]*)" | wc -l`
+ntests=`cat /experiment/test.sh | grep -w "n[[:digit:]]*)" | wc -l`
 
 # make.sh
 if [ -e make.sh ]; then
@@ -35,7 +35,7 @@ ln -s /experiment/invrepair/train.sh ./train.sh
 ln -s /experiment/invrepair/synth_euphony.sh ./synth_euphony.sh
 ln -s /experiment/make.sh ./make.sh
 ln -s /experiment/run_test.sh ./run_test.sh
-time /experiment/invrepair/repair.native -print_v -timeout_test 30 -timeout_sygus 180 -debug -euphony -trainer ./train.sh -sygus ./synth_euphony.sh -compile ./make.sh -pos $ptests -neg $ntests $fname ./run_test.sh
+time /experiment/invrepair/repair.native -print_v -scheme "jaccard" -timeout_test 30 -timeout_sygus 180 -debug -euphony -trainer ./train.sh -sygus ./synth_euphony.sh -compile ./make.sh -pos $ptests -neg $ntests $fname ./run_test.sh
 EOF
 fi
 
@@ -45,6 +45,7 @@ if [ -e run_test.sh ]; then
 else
         cat > run_test.sh <<EOF
 #! /bin/bash
+cd /experiment
 ./test.sh \$1
 r=\$?
 cd /experiment/src/$loc
