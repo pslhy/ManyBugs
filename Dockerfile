@@ -71,9 +71,9 @@ RUN git clone https://github.com/wslee/euphony.git \
 
 # install inv_repair
 RUN mkdir invrepair
-COPY invrepair.zip /experiment/invrepair/invrepair.zip
-RUN unzip /experiment/invrepair/invrepair.zip && \
-    rm /experiment/invrepair/invrepair.zip && \
+COPY invrepair.zip /experiment/invrepair.zip
+RUN unzip /experiment/invrepair.zip -d /experiment/invrepair && \
+    rm /experiment/invrepair.zip && \
     rm -rf /experiment/invrepair/__MACOSX
 
 # add some shell files
