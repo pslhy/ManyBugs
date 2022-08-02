@@ -28,8 +28,8 @@ else
 #! /bin/bash
 cd /experiment
 bash ./set_preprocess.sh
-cd /experiment/euphony/bin
-. setenv
+cd /experiment/euphony
+. bin/setenv
 cd /experiment/src
 make
 cd /experiment/src/$loc
