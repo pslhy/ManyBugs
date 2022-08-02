@@ -75,6 +75,7 @@ COPY invrepair.zip /experiment/invrepair.zip
 RUN unzip /experiment/invrepair.zip -d /experiment/invrepair && \
     rm /experiment/invrepair.zip && \
     rm -rf /experiment/invrepair/__MACOSX
+RUN sudo chmod +x /experiment/invrepair/*.sh
 
 # add some shell files
 COPY start.sh /experiment/start.sh
