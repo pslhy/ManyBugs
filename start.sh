@@ -26,6 +26,12 @@ if [ -e repair.sh ]; then
 else
 	cat > repair.sh <<EOF
 #! /bin/bash
+fid=""
+sid=""
+if [ "$#" -eq 2 ]; then
+	fid="-target_fid $1"
+	sid="-target_sid $2"
+fi
 cd /experiment
 bash ./set_preprocess.sh
 cd /experiment/euphony
@@ -37,7 +43,7 @@ ln -s /experiment/invrepair/train.sh ./train.sh
 ln -s /experiment/invrepair/synth_euphony.sh ./synth_euphony.sh
 ln -s /experiment/make.sh ./make.sh
 ln -s /experiment/run_test.sh ./run_test.sh
-time /experiment/invrepair/repair.native -print_v -scheme jaccard -timeout_test 30 -timeout_sygus 180 -debug -euphony -trainer ./train.sh -sygus ./synth_euphony.sh -compile ./make.sh -pos $ptests -neg $ntests $fname ./run_test.sh
+time /experiment/invrepair/repair.native -print_v -scheme jaccard $sid $fid -timeout_test 30 -timeout_sygus 180 -debug -euphony -trainer ./train.sh -sygus ./synth_euphony.sh -compile ./make.sh -pos $ptests -neg $ntests $fname ./run_test.sh
 EOF
 fi
 
