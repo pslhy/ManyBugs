@@ -1268,10 +1268,10 @@ bugs:
       time-limit: 300
       type: configure-and-make
     dataset: manybugs
-    image: squareslab/manybugs:php-2011-01-09-7c6310852e-3571c955b5
+    image: squareslab/manybugs:php-2011-01-06-e7a1d5004e-3571c955b5
     languages:
     - c
-    name: manybugs:php:2011-01-06-7c6310852e-3571c955b5
+    name: manybugs:php:2011-01-06-e7a1d5004e-3571c955b5
     program: php
     source-location: /experiment/src
     test-harness:
