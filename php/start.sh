@@ -5,8 +5,8 @@ manifest=`cat /experiment/manifest.txt`
 loc=`dirname $manifest`
 fname=`basename $manifest`
 root_loc="/experiment"
-ptests=`cat /experiment/test.sh | grep -w "p[[:digit:]]*)" | wc -l`
-ntests=`cat /experiment/test.sh | grep -w "n[[:digit:]]*)" | wc -l`
+ptests=`cat /experiment/passing.tests.txt | wc -l`
+ntests=`cat /experiment/failing.tests.txt | wc -l`
 
 # make.sh
 if [ -e make.sh ]; then

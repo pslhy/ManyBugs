@@ -99,6 +99,11 @@ RUN cd src && \
     tar -xf all-tests.tar.gz && \
     rm -f all-tests.tar.gz
 
+COPY start.sh /experiment/start.sh
+RUN sudo chmod +x /experiment/*.sh
+RUN sudo bash /experiment/start.sh
+RUN sudo chmod +x /experiment/*.sh
+
 # build
 RUN cd src \
  && make clean \
