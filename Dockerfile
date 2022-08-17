@@ -69,6 +69,18 @@ RUN git clone https://github.com/wslee/euphony.git \
  && . bin/setenv \
  && cd ..
 
+# install Z3
+RUN wget https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.8.1.zip \
+ && unzip /experiment/z3-4.8.1.zip \
+ && rm z3-4.8.1.zip \
+ && cd z3-4.8.1 \
+ && python scripts/mk_make.py \
+ && cd build \
+ && make \
+ && sudo make install \
+ && cd .. \
+ && cd ..
+
 # install inv_repair
 RUN mkdir invrepair
 COPY invrepair.zip /experiment/invrepair.zip
