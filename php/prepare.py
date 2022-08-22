@@ -20,8 +20,7 @@ NASTY_REVISIONS = [
     "c1322d2505",
     "f5a9e17f9c",
     "ff63c09e6f",
-    "8138f7de40",
-    "b60f6774dc"
+    "8138f7de40"
 ]
 
 # keep a list of test directories
