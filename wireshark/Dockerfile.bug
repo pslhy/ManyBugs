@@ -27,9 +27,6 @@ RUN wget -nv -O scenario.tar.gz \
     cat /experiment/doc.patch | patch -p1 && \
     rm /experiment/doc.patch
 
-RUN sudo bash /experiment/start.sh
-RUN sudo chmod +x /experiment/*.sh
-
 RUN cd /experiment/scenario && \
     find . -type f -print0 | xargs -0 sed -i '' && \
     cd src && \
@@ -54,3 +51,6 @@ RUN mv scenario/bug-info . && \
 RUN sed -i "s#cd wireshark#cd /experiment/src#g" test.sh && \
     sed -i "s#${OLD_LOCATION}/limit#timeout ${TEST_TIMEOUT}#g" test.sh && \
     sed -i "s#${OLD_LOCATION}/wireshark-run-tests.sh#/experiment/wireshark-run-tests.sh#g" test.sh
+
+RUN sudo bash /experiment/start.sh
+RUN sudo chmod +x /experiment/*.sh

@@ -54,6 +54,12 @@ blueprints:
     file: Dockerfile.bug
     tag: squareslab/manybugs:wireshark-35419-35414
     type: docker
+  - arguments:
+      scenario: wireshark-bug-37284-37285
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-37284-37285
+    type: docker
 
 bugs:
   - compiler:
@@ -169,6 +175,21 @@ bugs:
     languages:
     - c
     name: manybugs:wireshark:35419-35414
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 59
+      time-limit: 25
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-37284-37285
+    languages:
+    - c
+    name: manybugs:wireshark:37284-37285
     program: wireshark
     source-location: /experiment/src
     test-harness:
