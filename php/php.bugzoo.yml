@@ -28,7 +28,7 @@ blueprints:
     tag: squareslab/manybugs:php-2012-03-08-d54e6ce832-23e65a9dcc
     type: docker
   - arguments:
-      autoconf: '2.59'
+      autoconf: '2.60'
       bison: 2.4.3
       bug_revision: 453c954f8a
       fix_revision: daecb2c0f4
