@@ -1,11 +1,6 @@
 version: "1.0"
 
 blueprints:
-  - type: docker
-    tag: squareslab/manybugs:wireshark
-    file: Dockerfile
-    context: .
-    depends-on: squareslab/manybugs:base
   - arguments:
       scenario: wireshark-bug-37122-37123
     depends-on: squareslab/manybugs:wireshark

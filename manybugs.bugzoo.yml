@@ -9,3 +9,7 @@ blueprints:
     tag: squareslab/manybugs:gzip
     file: Dockerfile.gzip
     depends-on: squareslab/manybugs:base
+  - type: docker
+    tag: squareslab/manybugs:wireshark
+    file: Dockerfile.wireshark
+    depends-on: squareslab/manybugs:base
