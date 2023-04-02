@@ -20,6 +20,7 @@ NASTY_REVISIONS = [
     "032d140fd6",
     "c1322d2505",
     "f5a9e17f9c",
+    "de50e98a07",
     "ff63c09e6f",
     "8138f7de40"
 ]
