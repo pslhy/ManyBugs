@@ -1,12 +1,6 @@
 version: "1.0"
 
 blueprints:
-  - type: docker
-    tag: squareslab/manybugs:php
-    file: Dockerfile
-    context: .
-    depends-on: squareslab/manybugs:base
-
   - arguments:
       autoconf: '2.59'
       bison: 2.4.3
