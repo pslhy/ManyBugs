@@ -1,4 +1,4 @@
-FROM i386/ubuntu:14.04
+FROM ubuntu:14.04
 
 # Create docker user
 RUN apt-get update && \
